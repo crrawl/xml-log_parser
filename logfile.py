@@ -17,8 +17,6 @@ def logParser(logfilePath="server.log") -> list:
         for line in logfile:
             # SPLIT in segments
             body = line.strip().split()
-            if len(body) < 4:
-                continue
             ip, event = body[2], body[3]
             # If already exist return list else create key and give empty list. After that append to list.
             events.setdefault(ip, []).append(event)
